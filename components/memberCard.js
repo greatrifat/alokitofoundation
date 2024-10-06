@@ -2,7 +2,7 @@ export default function SingleCard({id, name, position, bio, image, fbHref, webH
     return(
         <div className="items-center bg-gray-50 rounded-lg shadow sm:flex dark:bg-gray-800 dark:border-gray-700">
                         <a href={id}>
-                            <img className="w-full rounded-lg sm:rounded-none sm:rounded-l-lg" src={image} alt="Sofia Avatar" />
+                            <img className="w-full h-40 rounded-full " src={image} alt="Sofia Avatar" />
                         </a>
                         <div className="p-5">
                             <h3 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">

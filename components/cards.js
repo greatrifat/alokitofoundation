@@ -11,7 +11,7 @@ export default function SingleCarddd (
     ){
         return(
             <div className="mb-1 overflow-hidden rounded-lg bg-blue-200 shadow-lg duration-300 hover:shadow-xl dark:bg-dark-2 dark:shadow-card dark:hover:shadow-3">
-        <img src={image} alt="pp" className="w-full" />
+        <img src={image} alt="pp" className="" />
         <div className="p-6 text-center sm:p-7 md:p-3 xl:p-4">
           <h3>
             <a

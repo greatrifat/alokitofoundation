@@ -15,7 +15,7 @@ export default function MembersList() {
                         name="Robayet Ahasan"
                         position="Student "
                         bio="hello this is robayet Ahasan, I am a cs student must be default text"
-                        image="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png"
+                        image="image/default.jpg"
                         fbHref="/#"
                         webHref="/#"
 
@@ -26,7 +26,7 @@ export default function MembersList() {
                         name="Ahasan Rifat"
                         position="Student & owner"
                         bio="Lana drives the technical strategy of the flowbite platform and brand."
-                        image="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png"
+                        image="image/default.jpg"
                         fbHref="/#"
                         webHref="/#"
                     />
@@ -36,7 +36,7 @@ export default function MembersList() {
                         name="Ahasan Rifat"
                         position="Student & owner"
                         bio="Lana drives the technical strategy of the flowbite platform and brand."
-                        image="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png"
+                        image="image/default.jpg"
                         fbHref="/#"
                         webHref="/#"
                     />
@@ -46,7 +46,7 @@ export default function MembersList() {
                         name="Ahasan Rifat"
                         position="Student & owner"
                         bio="Lana drives the technical strategy of the flowbite platform and brand."
-                        image="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png"
+                        image="image/default.jpg"
                         fbHref="/#"
                         webHref="/#"
                     />
