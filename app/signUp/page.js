@@ -1,4 +1,5 @@
 
+
 import SignUpComponent from '@/components/auth/signup'
 import React from 'react'
 
