@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function SignInComponent() {
+export default function SignUpComponent() {
   return (
     <section className="bg-gray-50 dark:bg-gray-900">
   <div className="flex flex-col items-center justify-center px-4 py-0 mx-12 md:h-screen lg:py-0">
@@ -11,7 +11,7 @@ export default function SignInComponent() {
       <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                  Sign in to your account
+                  Sign Up to for a account
               </h1>
               <form className="space-y-4 md:space-y-6" action="#">
                   <div>
@@ -21,6 +21,10 @@ export default function SignInComponent() {
                   <div>
                       <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
                       <input type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required=""/>
+                  </div>
+                  <div>
+                      <label htmlFor="cpassword" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm Password</label>
+                      <input type="password" name="cpassword" id="cpassword" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required=""/>
                   </div>
                   <div className="flex items-center justify-between">
                       <div className="flex items-start">
@@ -35,7 +39,7 @@ export default function SignInComponent() {
                   </div>
                   <button type="submit" className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign in</button>
                   <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                      Don’t have an account yet? <a href="/signUp" className="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign up</a>
+                      Have an account yet? <a href="/signIn" className="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign In</a>
                   </p>
               </form>
           </div>

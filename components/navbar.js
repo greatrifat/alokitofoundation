@@ -30,20 +30,17 @@ const navLinks = [
     title: "Project",
     path: "/project",
   },
-  {
-    title: "Register/Login",
-    path: "/register",
-  },
+  
 ];
 export default function Navbar(){
     const [navbarOpen, setNavbarOpen] = useState(false);
-
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     return(
         <nav className="fixed top-0 left-0 right-0 z-10 pt-1 lg:pt-1 mx-auto border border-[#33353F] bg-[#121212] bg-opacity-100">
         <div className="flex container lg:py-4 flex-wrap items-center justify-between mx-auto px-4 py-2">
           <Link
             href={"/"}
-            className="text-xl md:text-3xl text-white font-semibold"
+            className="text-xl md:text-xl text-white font-semibold"
           >
             Alokito Foundation
           </Link>
@@ -70,7 +67,20 @@ export default function Navbar(){
                 <li key={index}>
                   <NavLink href={link.path} title={link.title} />
                 </li>
+              
               ))}
+              
+              {isLoggedIn ? (
+              <li className="relative group">
+              {/* Dropdown for Logout */}
+              <NavLink href="/" title="LogOut" />
+              </li>
+              ) : (
+              <li>
+              <NavLink href="/signUp" title="Register/Login" />
+              </li>
+              )}
+
             </ul>
           </div>
         </div>

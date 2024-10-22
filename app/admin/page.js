@@ -4,6 +4,33 @@ import React, { useState } from 'react';
 export default function Dashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
+  // Example members data
+  const members = [
+    { id: 1, name: "John Doe", email: "john@example.com", role: "Admin" },
+    { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User" },
+    { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User" },
+    { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User" },
+    { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User" },
+    { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User" },
+    { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User" },
+    { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User" },
+    { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User" },
+    { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User" },
+    { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User" },
+    { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User" },
+    { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User" },
+    { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User" },
+    { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User" },
+    { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User" },
+    { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User" },
+    { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User" },
+    { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User" },
+    { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User" },
+    { id: 2, name: "Jane Smith", email: "jane@example.com", role: "User" },
+
+    // Add more members as needed
+  ];
+
   return (
     <div className="min-h-screen flex flex-col md:flex-row bg-gray-100">
       {/* Mobile Header with Sidebar Toggle */}
@@ -26,7 +53,8 @@ export default function Dashboard() {
       </header>
 
       {/* Sidebar */}
-      <aside className={`fixed md:static z-20 top-0 left-0 w-64 bg-gray-800 text-gray-100 transform md:transform-none transition-transform duration-200 ease-in-out ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+
+      <aside className={`fixed md:fixed z-20 top-13 left-0 h-3/4 w-64 bg-gray-800 text-gray-100 transform md:transform-none transition-transform duration-200 ease-in-out ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
         <div className="p-4 text-center">
           <h1 className="text-2xl font-bold">Admin Dashboard</h1>
         </div>
@@ -48,6 +76,11 @@ export default function Dashboard() {
         </nav>
       </aside>
 
+          
+           
+
+      
+
       {/* Main Content */}
       <div className="flex-1 p-6">
         {/* Header */}
@@ -60,7 +93,7 @@ export default function Dashboard() {
 
         {/* Members Table */}
         <div className="mt-6">
-          <div className="overflow-x-auto bg-white rounded shadow">
+          <div className="overflow-y-scroll h-96 bg-white rounded shadow">
             <table className="min-w-full bg-white border-collapse">
               <thead>
                 <tr>
@@ -72,18 +105,18 @@ export default function Dashboard() {
                 </tr>
               </thead>
               <tbody className="bg-white">
-                {/* Example row */}
-                <tr>
-                  <td className="px-6 py-4 whitespace-no-wrap border-b text-sm text-gray-700">1</td>
-                  <td className="px-6 py-4 whitespace-no-wrap border-b text-sm text-gray-700">John Doe</td>
-                  <td className="px-6 py-4 whitespace-no-wrap border-b text-sm text-gray-700">john@example.com</td>
-                  <td className="px-6 py-4 whitespace-no-wrap border-b text-sm text-gray-700">Admin</td>
-                  <td className="px-6 py-4 whitespace-no-wrap border-b text-sm text-gray-700">
-                    <button className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 mr-2">Edit</button>
-                    <button className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Delete</button>
-                  </td>
-                </tr>
-                {/* Add more rows as needed */}
+                {members.map((member) => (
+                  <tr key={member.id}>
+                    <td className="px-6 py-4 whitespace-no-wrap border-b text-sm text-gray-700">{member.id}</td>
+                    <td className="px-6 py-4 whitespace-no-wrap border-b text-sm text-gray-700">{member.name}</td>
+                    <td className="px-6 py-4 whitespace-no-wrap border-b text-sm text-gray-700">{member.email}</td>
+                    <td className="px-6 py-4 whitespace-no-wrap border-b text-sm text-gray-700">{member.role}</td>
+                    <td className="px-6 py-4 whitespace-no-wrap border-b text-sm text-gray-700">
+                      <button className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 mr-2">Edit</button>
+                      <button className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Delete</button>
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
