@@ -2,6 +2,8 @@ import connectDB from "@/connection/mongoose";
 import Users from "@/models/users";
 import { NextResponse } from "next/server";
 
+export const revalidate = 0;
+export const fetchCache = ''
 
 export async function GET(){
 
