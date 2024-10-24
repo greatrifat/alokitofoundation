@@ -77,7 +77,7 @@ export default function Navbar(){
               </li>
               ) : (
               <li>
-              <NavLink href="/signUp" title="Register/Login" />
+              <NavLink href="/auth/signup" title="Register/Login" />
               </li>
               )}
 
