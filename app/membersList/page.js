@@ -9,6 +9,7 @@ async function fetchMembers() {
             headers: {
                 "Content-Type": "application/json",
             },
+            cache:"no-store"
         });
 
         // Parse the JSON response
