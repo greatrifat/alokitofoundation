@@ -1,5 +1,6 @@
 import Team from "@/components/team/team";
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ;
+
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || window.location.origin;
 
 async function fetchMembers() {
     try {
@@ -16,12 +17,11 @@ async function fetchMembers() {
         if (res.status === 200) {
             return result; // Return the fetched data (not stringified)
         } else {
-            alert(result.message || 'An error occurred');
+            
             return null;  // Return null in case of an error
         }
     } catch (error) {
         console.error('Error fetching members:', error);
-        alert('Failed to fetch members');
         return null;  // Handle fetch error
     }
 
@@ -31,6 +31,7 @@ async function fetchMembers() {
 
 
 export default async function MembersList() {
+    
     const members  = await fetchMembers();
     
     return (
@@ -44,6 +45,7 @@ export default async function MembersList() {
                 <div className="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                 <Team members={members}/>
                 </div>
+                
             </div>
         </section >
     )
