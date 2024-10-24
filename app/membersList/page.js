@@ -4,17 +4,11 @@ const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || window.location.origin;
 
 async function fetchMembers() {
     try {
-        const res = await fetch(`${baseUrl}/api/member`, { 
-            method: 'GET',
-            headers: {
-                "Content-Type": "application/json",
-            },
-            cache:"no-store"
-        });
+        const res = await fetch(`${baseUrl}/api/member`, {cache: 'no-store'});
 
         // Parse the JSON response
         const result = await res.json();
-        console.log('got the fetchMembers api');
+        console.log('got the members api');
         if (res.status === 200) {
             return result; // Return the fetched data (not stringified)
             
@@ -35,7 +29,7 @@ async function fetchMembers() {
 export default async function MembersList() {
     
     const members  = await fetchMembers();
-    console.log('got the MembersList');
+    console.log('got the members data');
     
     return (
 
