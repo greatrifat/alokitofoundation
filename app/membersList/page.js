@@ -13,9 +13,10 @@ async function fetchMembers() {
 
         // Parse the JSON response
         const result = await res.json();
-
+        console.log('got the fetchMembers api');
         if (res.status === 200) {
             return result; // Return the fetched data (not stringified)
+            
         } else {
             
             return null;  // Return null in case of an error
@@ -33,6 +34,7 @@ async function fetchMembers() {
 export default async function MembersList() {
     
     const members  = await fetchMembers();
+    console.log('got the MembersList');
     
     return (
 

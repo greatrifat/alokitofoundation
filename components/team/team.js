@@ -1,5 +1,6 @@
 export default function Team({ members }) {
-
+    console.log('got the Team');
+    console.log(members);
     if (!members || members.length === 0) {
         return <p>No team members found.</p>; // Handle the case when there are no members
     }
