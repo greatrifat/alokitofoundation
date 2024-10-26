@@ -1,13 +1,15 @@
 "use client"
 import React, { useState,useEffect } from 'react'
+import LoadingAnimation from '../others/loading';
 
 export default function SignInComponent() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-
+    const [loading, setLoading] = useState(false);
     //handle the submit button 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        setLoading(true);
         const res = await fetch("/api/auth/signin", {
           method: "POST",
           headers: {
@@ -20,23 +22,31 @@ export default function SignInComponent() {
         });
         const result = await res.json();
         //console.log(result);
+
         if (res.status === 200) {
-          // set the local stroage as user login
-            localStorage.setItem("myuser", JSON.stringify({token : result.token, email : result.email, id: result.id}));
-          
-          alert(result.message);
-          //window.location.href = "/login";
+          //set the local stroage as user login
+          localStorage.setItem("myuser", JSON.stringify({token : result.token, email : result.email, id: result.id}));
           setTimeout(function () {
-            window.location.href = `/profile/${result.id}`; //will redirect to profile page
+          setLoading(false);
+          // stop loading
+          alert(result.message);
+          window.location.href = `/profile/${result.id}`; //will redirect to profile page
           }, 2000);
-    
         } else { 
+          setLoading(false);
           alert(result.message);
           
         }
         setEmail("")
         setPassword("")
       }
+
+      if (loading) return(
+        <>
+      
+        <LoadingAnimation text="checking authorisation" />
+        </>
+      );
 
   return (
     <section className="bg-gray-50 dark:bg-gray-900">

@@ -1,12 +1,14 @@
 "use client"
 import React, { useState,useEffect } from 'react'
 import Image from "next/image";
+import LoadingAnimation from '../others/loading';
 
 export default function SignUpComponent() {
     const [name, setName] = useState()
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
     const [cpassword, setCpassword] = useState()
+    const [loading, setLoading] = useState(false);
 
     //handle the submit form
     const handleSubmit = async (e) => {
@@ -16,7 +18,7 @@ export default function SignUpComponent() {
       alert("Password and confirm password does not match");
       return;
     }
-
+    setLoading(true);
     const res = await fetch("/api/auth/signup", {
       method: "POST",
       headers: {
@@ -32,16 +34,17 @@ export default function SignUpComponent() {
     console.log(result);
    
     if (res.status === 201) {
-      alert(result.message);
       setTimeout(function () {
-        window.location.href = "/auth/signin"; //will redirect to login
-      }, 3000);
-
-    } else {
+      setLoading(false);
       alert(result.message);
-    //      setTimeout(function () {
-    //      window.location.href = "/auth/signup"; //will redirect to signup
-    //    }, 3000);
+      window.location.href = "/auth/signin"; //will redirect to login
+    }, 2000);
+    } else {
+         setTimeout(function () {
+          setLoading(false);
+          alert(result.message);
+         window.location.href = "/auth/signup"; //will redirect to signup
+       }, 2000);
       
     }
     setEmail("")
@@ -50,7 +53,12 @@ export default function SignUpComponent() {
     setCpassword("")
   }
 
-
+  if (loading) return(
+    <>
+    
+    <LoadingAnimation text="Creating New Account" />
+    </>
+  );
 
   return (
     <section className="bg-gray-50 dark:bg-gray-900">
