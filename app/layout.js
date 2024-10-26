@@ -1,7 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import Footer from "@/components/footer";
-import Navbar from "@/components/navbar";
+import NavBar from "@/components/navBar/navbar";
 
 export const metadata = {
   icons: {
@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
        
       <body >
-        <Navbar/>
+        <NavBar/>
         <div className="flex justify-center items-center mt-20">
         {children}
         </div>

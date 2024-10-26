@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect } from "react";
@@ -12,7 +13,14 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
   }
 
-export default function ProfileView() {
+export default function ProfileView({user}) {
+
+    console.log('got the ProfileView');
+    console.log(user);
+    if (!user || user.length === 0) {
+        return <p>No team user found.</p>; // Handle the case when there are no members
+    }
+
   
     const [tabs, setTabs] = useState([
       { name: "Profile", href: "#", current: true },
@@ -32,15 +40,15 @@ export default function ProfileView() {
     };
     const [isLoggedIn, setIsLoggedIn] = useState(true);
 
-    const user = {
-        name: "Md Robayet Ahasan Rifat",
-        title: "robayet",
-        email: "greatrifat@gmail.com",
-        imageUrl: "/image/default.jpg",
-        location: "Konapara,Dhaka",
-        createdAt: "2023-05-15T20:07:40.592Z"
+    // const user = { 
+    //     name: "Md Robayet Ahasan Rifat",
+    //     title: "robayet",
+    //     email: "greatrifat@gmail.com",
+    //     imageUrl: "/image/default.jpg",
+    //     location: "Konapara,Dhaka",
+    //     createdAt: "2023-05-15T20:07:40.592Z"
         
-      };
+    //   };
 
     //const [user, setUser] = useState({});
 
@@ -186,7 +194,7 @@ export default function ProfileView() {
         </div>
         {tabs[0].current && <ProfileInfo />}
         {tabs[1].current && <ProfileActivity />}
-        {tabs[2].current && <ProfileEdit />}
+        {tabs[2].current && <ProfileEdit user={user}/>}
       </div>
     );
   }

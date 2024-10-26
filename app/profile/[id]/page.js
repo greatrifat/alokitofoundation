@@ -1,22 +1,22 @@
-"use client"
-import Link from "next/link";
-import Image from "next/image";
-import { useState } from "react";
+
 import ProfileView from "@/components/profile/profile_view";
-
-const user = {
-  name: "Md Robayet Ahasan",
-  email: "greatrifat@gmail.com",
-  imageUrl: "/image/default.jpg",
-};
-
-export default function Profile({ params }){
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+export default async function Profile({ params }) {
     const { id } = params;
-    //<div> Profile id is {id}</div>
-    return (
-        <>
-        <ProfileView/>
-        
-        </>
-      );
+
+    // Directly call the API to fetch user data
+    const res = await fetch(`${baseUrl}/api/member/${id}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        cache: "no-store",
+    });
+    
+    if (!res.ok) {
+        return <p>Error fetching profile data.</p>; // Handle error state
+    }
+
+    const user = await res.json(); // Parse JSON response
+    return  <ProfileView user={user} /> ;
 }

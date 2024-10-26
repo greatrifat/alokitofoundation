@@ -6,8 +6,7 @@ import mongoose from 'mongoose';
 export async function GET(req, { params }) {
     try {
         const { id } = params; // Get the dynamic route parameter
-        console.log(id);
-
+        
         // Check if id is a valid MongoDB ObjectId
         if (!mongoose.Types.ObjectId.isValid(id)) {
             return NextResponse.json({ message: 'Invalid ID format' }, { status: 400 });
